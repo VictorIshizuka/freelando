@@ -17,6 +17,7 @@ const theme = {
   gaps: {
     s: "16px",
     l: "32px",
+    m: "24px",
   },
   fontFamily: "'Montserrat', 'sans-serif'",
 };
