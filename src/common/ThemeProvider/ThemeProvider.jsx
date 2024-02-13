@@ -2,6 +2,7 @@ import { ThemeProvider } from "@emotion/react";
 
 const theme = {
   colors: {
+    white: "#ffff",
     primary: {
       a: "#5754eD",
       b: "",
@@ -12,12 +13,16 @@ const theme = {
       b: "",
       c: "",
     },
-    neutral: {},
+    neutral: {
+      a: "#373737",
+    },
   },
   gaps: {
     s: "16px",
     l: "32px",
     m: "24px",
+    xs: "8px",
+    xl: "48px",
   },
   fontFamily: "'Montserrat', 'sans-serif'",
 };
