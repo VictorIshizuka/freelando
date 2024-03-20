@@ -9,3 +9,12 @@ const FooterStyled = styled.footer`
 export const Footer = ({ children }) => {
   return <FooterStyled>{children}</FooterStyled>;
 };
+
+export const ListInline = styled.ul`
+  padding: 0;
+  margin: 0;
+  list-style: none;
+`;
+export const ItemListInline = styled.li`
+  display: inline-block;
+`;

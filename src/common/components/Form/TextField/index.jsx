@@ -12,6 +12,7 @@ const InputStyled = styled.input`
   display: block;
   width: 100%;
   margin-top: ${(props) => props.theme.gaps.xs};
+  margin-bottom: ${(props) => props.theme.gaps.s};
   background: ${(props) => props.theme.colors.white};
   border: 1px solid;
   border-color: ${(props) => props.theme.colors.neutral.a};

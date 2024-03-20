@@ -23,15 +23,35 @@ const styles = {
   font-size: 24px;
   line-height: 29px
   `,
-  body: `
+  body1: `
   font-weight: 400;
   font-size: 20px;
   line-height: 24px
   `,
-  body1: `
+  body1Bold: `
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px
+  `,
+  body2: `
   font-weight: 400;
   font-size: 16px;
   line-height: 19px
+  `,
+  body2Bold: `
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px
+  `,
+  subtitle1: `
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px
+  `,
+  subtitle2: `
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px
   `,
 };
 
