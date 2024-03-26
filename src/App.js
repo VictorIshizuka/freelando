@@ -17,7 +17,38 @@ import tt from "./common/assets/Twiter 1.png";
 import th from "./common/assets/Twitch.png";
 import wa from "./common/assets/Whatsapp 1.png";
 import { Link } from "./common/components/Link/index.jsx";
+import { DropDown } from "./common/components/Form/DropDown/index.jsx";
 function App() {
+  const brasilianStates = [
+    { text: "Acre", value: "AC" },
+    { text: "Alagoas", value: "AL" },
+    { text: "Amapá", value: "AP" },
+    { text: "Amazonas", value: "AM" },
+    { text: "Bahia", value: "BA" },
+    { text: "Ceará", value: "CE" },
+    { text: "Distrito Federal", value: "DF" },
+    { text: "Espírito Santo", value: "ES" },
+    { text: "Goiás", value: "GO" },
+    { text: "Maranhão", value: "MA" },
+    { text: "Mato Grosso", value: "MT" },
+    { text: "Mato Grosso do Sul", value: "MS" },
+    { text: "Minas Gerais", value: "MG" },
+    { text: "Pará", value: "PA" },
+    { text: "Paraíba", value: "PB" },
+    { text: "Paraná", value: "PR" },
+    { text: "Pernambuco", value: "PE" },
+    { text: "Piauí", value: "PI" },
+    { text: "Rio de Janeiro", value: "RJ" },
+    { text: "Rio Grande do Norte", value: "RN" },
+    { text: "Rio Grande do Sul", value: "RS" },
+    { text: "Rondônia", value: "RO" },
+    { text: "Roraima", value: "RR" },
+    { text: "Santa Catarina", value: "SC" },
+    { text: "São Paulo", value: "SP" },
+    { text: "Sergipe", value: "SE" },
+    { text: "Tocantins", value: "TO" },
+  ];
+
   return (
     <IsThemeProvider>
       <Styles />
@@ -36,8 +67,8 @@ function App() {
           </Row>
         </Container>
       </Header>
-      <Container style={{ margin: "80px 0" }}>
-        <Row justify="center">
+      <Container style={{ margin: "50px 0" }}>
+        <Row justify="center" style={{ paddingLeft: "200px" }}>
           <Col lg={6} md={8} sm={12}>
             <Card>
               <Typography variant="h1" component="h1">
@@ -55,7 +86,7 @@ function App() {
               </Row>
               <Row>
                 <Col lg={4} md={4} sm={4}>
-                  <TextField title="Estado" />
+                  <DropDown title="Estado" options={brasilianStates} />
                 </Col>
                 <Col lg={8} md={8} sm={8}>
                   <TextField title="Cidade" />
@@ -91,12 +122,16 @@ function App() {
       </Container>
       <Footer>
         <Container>
-          <Row align="center ">
-            <Col>
-              <img src={logo} alt="logo" />
+          <Row align="center">
+            <Col justify="center">
+              <img
+                src={logo}
+                alt="logo"
+                style={{ height: "40px", marginTop: "10px" }}
+              />
               {/* <FreelandoLogo height={40} width={176} /> */}
               <Typography variant="subtitle1" component="body">
-                Desenvolvido por eu.
+                <div style={{ marginLeft: "8px" }}>Desenvolvido por eu.</div>
               </Typography>
             </Col>
             <Col style={{ textAlign: "right" }}>
