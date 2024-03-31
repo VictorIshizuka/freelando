@@ -13,7 +13,6 @@ const ButtonPrimaryStyled = styled.button`
   line-height: 20px;
   text-align: center;
   cursor: pointer;
-  border: none;
   &:hover {
     background: ${(props) => props.theme.colors.dark.b};
   }

@@ -1,4 +1,5 @@
 import { Global } from "@emotion/react";
+import { Hidden } from "react-grid-system";
 
 const styles = (theme) => {
   return {
@@ -8,6 +9,7 @@ const styles = (theme) => {
     body: {
       margin: 0,
       padding: 0,
+      "overflow-x": "hidden",
     },
   };
 };
