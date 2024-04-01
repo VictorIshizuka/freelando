@@ -1,39 +1,39 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter } from "react-router-dom";
 
-import Home from '../../modules/Home'
-import HomePage from '../../modules/HomePage'
-import { LayoutBase } from '../layout/layoutBase'
-import LayoutBaseCard from '../layout/layoutCard'
-import RegisterClient from '../../modules/client'
-
+import DataPersonal from "../../modules/client/pages/personal-data";
+import HomePage from "../../modules/HomePage";
+import { LayoutBase } from "../layout/layoutBase";
+import LayoutBaseCard from "../layout/layoutCard";
+import RegisterClient from "../../modules/client/pages/interests";
+import { Conclueded } from "../../modules/client/pages/conclueded";
 
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <LayoutBase />,
     children: [
       {
-        path: 'cadastro',
+        path: "cadastro",
         element: <LayoutBaseCard />,
         children: [
           {
-            path: '',
+            path: "",
             element: <HomePage />,
           },
           {
-            path: 'interesses',
-            element: <RegisterClient/>,
+            path: "interesses",
+            element: <RegisterClient />,
           },
           {
-            path: 'dados-pessoais',
-            element: <Home />,
+            path: "dados-pessoais",
+            element: <DataPersonal />,
           },
           {
-            path: 'concluido',
-            element: <h1>Concluído</h1>,
+            path: "conclueded",
+            element: <Conclueded />,
           },
         ],
       },
     ],
   },
-])
+]);

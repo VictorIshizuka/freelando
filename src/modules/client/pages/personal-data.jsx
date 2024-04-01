@@ -1,11 +1,12 @@
-import { Typography } from "../../common/components/Typography/index.jsx";
-import { TextField } from "../../common/components/Form/TextField/index.jsx";
-import { Button } from "../../common/components/Form/Button/index.jsx";
-import { DropDown } from "../../common/components/Form/DropDown/index.jsx";
+import { Typography } from "../../../common/components/Typography/index.jsx";
+import { TextField } from "../../../common/components/Form/TextField/index.jsx";
+import { Button } from "../../../common/components/Form/Button/index.jsx";
+import { DropDown } from "../../../common/components/Form/DropDown/index.jsx";
+import { Link as RouterLink } from "react-router-dom";
 
 import { Col, Row } from "react-grid-system";
 
-const Home = () => {
+const DataPersonal = () => {
   const brasilianStates = [
     { text: "Acre", value: "AC" },
     { text: "Alagoas", value: "AL" },
@@ -73,12 +74,16 @@ const Home = () => {
       </Row>
       <Row>
         <Col lg={6} md={6} sm={6}>
-          <Button variant="secondary">anterior</Button>
+          <RouterLink to="/cadastro/interesses">
+            <Button variant="secondary">anterior</Button>
+          </RouterLink>
         </Col>
 
         <Col lg={6} md={6} sm={6}>
           <div style={{ textAlign: "right" }}>
-            <Button variant="primary">proximo</Button>
+            <RouterLink to="/cadastro/conclueded">
+              <Button variant="primary">proximo</Button>
+            </RouterLink>
           </div>
         </Col>
       </Row>
@@ -86,4 +91,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default DataPersonal;

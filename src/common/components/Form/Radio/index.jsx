@@ -5,7 +5,6 @@ const LabelStyled = styled.label`
   align-items: center;
   font-size: 16px;
   margin-left: ${(props) => props.theme.gaps.xs};
-  margin-bottom: ${(props) => props.theme.gaps.m};
   cursor: pointer;
   padding: ${(props) => props.theme.gaps.xs};
   &:hover {
