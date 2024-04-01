@@ -36,7 +36,7 @@ const ButtonStyled = styled.button`
 `;
 
 export const DropDownListStyled = styled.ul`
-  height: 200px;
+  height: 120px;
   overflow-x: hidden;
   overflow-y: scroll;
   position: absolute;
@@ -59,7 +59,6 @@ export const ItemDropDownListStyled = styled.li`
   text-align: center;
   border-bottom: 1px solid ${(props) => props.theme.colors.neutral.a};
   cursor: pointer;
-  font-size: 15px;
   &:last-child {
     border: none;
   }
@@ -124,12 +123,13 @@ export const DropDown = ({ title, options }) => {
     <LabelStyled>
       {title}
       <ButtonStyled
+        open={open}
         onClick={() => changeVisible(!open)}
         onKeyDown={evetClickSelect}
       >
         <div>{isOptionSelected ? isOptionSelected.text : "Selecione"}</div>
         <div>
-          <span style={{ marginLeft: "35px" }}> {open ? "▲" : "▼"}</span>
+          <span> {open ? "▲" : "▼"}</span>
         </div>
         {open && (
           <DropDownListStyled>

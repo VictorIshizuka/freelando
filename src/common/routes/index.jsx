@@ -13,7 +13,7 @@ export const router = createBrowserRouter([
     element: <LayoutBase />,
     children: [
       {
-        path: "cadastro",
+        path: "register",
         element: <LayoutBaseCard />,
         children: [
           {
@@ -21,11 +21,11 @@ export const router = createBrowserRouter([
             element: <HomePage />,
           },
           {
-            path: "interesses",
+            path: "interests",
             element: <RegisterClient />,
           },
           {
-            path: "dados-pessoais",
+            path: "personal-data",
             element: <DataPersonal />,
           },
           {

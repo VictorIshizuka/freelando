@@ -38,55 +38,57 @@ const DataPersonal = () => {
   ];
   return (
     <>
-      <Typography variant="h1" component="h1">
-        Freelando
-      </Typography>
-      <Typography variant="body" component="body">
-        Crie seu perfil gratuitamente para começar a trabalhar com os melhores
-        freelancers. Em seguida, você poderá dar mais detalhes sobre suas
-        demandas e sobre sua forma de trabalho.
-      </Typography>
-      <Row>
-        <Col lg={12} md={12} sm={12}>
-          <TextField title="Nome Completo" />
-        </Col>
-      </Row>
-      <Row>
-        <Col lg={4} md={4} sm={4}>
-          <DropDown title="Estado" options={brasilianStates} />
-        </Col>
-        <Col lg={8} md={8} sm={8}>
-          <TextField title="Cidade" />
-        </Col>
-      </Row>
-      <Row>
-        <Col lg={12} md={12} sm={12}>
-          <TextField title="Email" />
-        </Col>
-      </Row>
-      <Row>
-        <Col lg={6} md={6} sm={6}>
-          <TextField title="Senha" />
-        </Col>
-        <Col lg={6} md={6} sm={6}>
-          <TextField title="Repita a senha" />
-        </Col>
-      </Row>
-      <Row>
-        <Col lg={6} md={6} sm={6}>
-          <RouterLink to="/cadastro/interesses">
-            <Button variant="secondary">anterior</Button>
-          </RouterLink>
-        </Col>
-
-        <Col lg={6} md={6} sm={6}>
-          <div style={{ textAlign: "right" }}>
-            <RouterLink to="/cadastro/conclueded">
-              <Button variant="primary">proximo</Button>
+      <div style={{ textAlign: "center" }}>
+        <Typography variant="h1" component="h1">
+          Freelando
+        </Typography>
+        <Typography variant="body" component="body">
+          Crie seu perfil gratuitamente para começar a trabalhar com os melhores
+          freelancers. Em seguida, você poderá dar mais detalhes sobre suas
+          demandas e sobre sua forma de trabalho.
+        </Typography>
+        <Row>
+          <Col>
+            <TextField title="Nome Completo" />
+          </Col>
+        </Row>
+        <Row>
+          <Col lg={4} md={4} sm={4}>
+            <DropDown title="Estado" options={brasilianStates} />
+          </Col>
+          <Col lg={8} md={8} sm={8}>
+            <TextField title="Cidade" />
+          </Col>
+        </Row>
+        <Row>
+          <Col lg={12} md={12} sm={12}>
+            <TextField title="Email" />
+          </Col>
+        </Row>
+        <Row>
+          <Col lg={6} md={6} sm={6}>
+            <TextField title="Senha" />
+          </Col>
+          <Col lg={6} md={6} sm={6}>
+            <TextField title="Repita a senha" />
+          </Col>
+        </Row>
+        <Row>
+          <Col lg={6} md={6} sm={6}>
+            <RouterLink to="/register/interests">
+              <Button variant="secondary">anterior</Button>
             </RouterLink>
-          </div>
-        </Col>
-      </Row>
+          </Col>
+
+          <Col lg={6} md={6} sm={6}>
+            <div style={{ textAlign: "right" }}>
+              <RouterLink to="/register/conclueded">
+                <Button variant="primary">proximo</Button>
+              </RouterLink>
+            </div>
+          </Col>
+        </Row>
+      </div>
     </>
   );
 };

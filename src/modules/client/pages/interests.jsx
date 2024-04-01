@@ -1,27 +1,39 @@
 import { Col, Row } from "react-grid-system";
-import React from "react";
+import React, { useState } from "react";
 import { Typography } from "../../../common/components/Typography";
 import { Button } from "../../../common/components/Form/Button";
-import Radio from "../../../common/components/Form/Radio";
 import { Link as RouterLink } from "react-router-dom";
-
-// export const GroupRadio = ({ options, value, onChange }) => {
-//   return (
-//     <div>
-//       {options.map((option) => (
-//         <Radio
-//           key={option.value}
-//           valor={option.value}
-//           label={option.label}
-//           checked={option.value === value}
-//           onClick={() => onChange(option.value)}
-//         />
-//       ))}
-//     </div>
-//   );
-// };
+import { GroupRadio } from "../../../common/components/Form/Radio/groupRadio";
 
 const RegisterClient = () => {
+  const [isOption, setIsOption] = useState("");
+  const options = [
+    {
+      valor: 1,
+      label: "TI e Programação",
+    },
+    {
+      valor: 2,
+      label: "Design e Multimídia",
+    },
+    {
+      valor: 3,
+      label: "Revisão",
+    },
+    {
+      valor: 4,
+      label: "Tradução",
+    },
+    {
+      valor: 5,
+      label: "Transcrição",
+    },
+    {
+      valor: 6,
+      label: "Marketing",
+    },
+  ];
+
   return (
     <div style={{ marginTop: "-26px" }}>
       <div style={{ textAlign: "center" }}>
@@ -34,18 +46,17 @@ const RegisterClient = () => {
       </div>
       <Row>
         <Col>
-          <Radio label="TI e Programação" />
-          <Radio label="Design e Multimídia" />
-          <Radio label="Revisão" />
-          <Radio label="Tradução" />
-          <Radio label="Transcrição" />
-          <Radio label="Marketing" />
+          <GroupRadio
+            options={options}
+            value={isOption}
+            onChange={setIsOption}
+          />
         </Col>
       </Row>
       <Row justify="between" style={{ padding: "20px 16px 0 10px" }}>
         <Col lg={6} md={6} sm={6}>
           <div style={{ textAlign: "left" }}>
-            <RouterLink to="/cadastro">
+            <RouterLink to="/register">
               <Button variant="secondary">anterior</Button>
             </RouterLink>
           </div>
@@ -53,7 +64,7 @@ const RegisterClient = () => {
 
         <Col lg={6} md={6} sm={6}>
           <div style={{ textAlign: "right" }}>
-            <RouterLink to="/cadastro/dados-pessoais">
+            <RouterLink to="/register/personal-data">
               <Button variant="primary">proximo</Button>
             </RouterLink>
           </div>

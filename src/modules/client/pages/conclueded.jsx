@@ -2,7 +2,7 @@ import { Col, Row } from "react-grid-system";
 import { Typography } from "../../../common/components/Typography";
 import { Button } from "../../../common/components/Form/Button";
 import { Link } from "react-router-dom";
-import conclueded from "../../../common/assets/imageProfile/conclueded.png";
+import concluededLCient from "../../../common/assets/imageProfile/conclueded-client.png";
 
 export const Conclueded = () => {
   return (
@@ -18,7 +18,7 @@ export const Conclueded = () => {
       </div>
       <figure>
         <img
-          src={conclueded}
+          src={concluededLCient}
           alt="conclueded"
           height={350}
           width={"100%"}
@@ -27,7 +27,7 @@ export const Conclueded = () => {
       </figure>
       <Row style={{ padding: "20px 16px 0 10px" }} justify="center">
         <Col lg={6} md={6} sm={6} style={{ textAlign: "center" }}>
-          <Link to="/cadastro">
+          <Link to="/register">
             <Button variant="secondary">Volte para a home</Button>
           </Link>
         </Col>

@@ -1,7 +1,7 @@
 import { Col, Row } from "react-grid-system";
 import React from "react";
 import { Typography } from "../../common/components/Typography";
-import cliente from "../../common/assets/imageProfile/cliente.png";
+import cliente from "../../common/assets/imageProfile/client.png";
 import freela from "../../common/assets/imageProfile/freela.png";
 import { Link } from "../../common/components/Link";
 import { Link as RouterLink } from "react-router-dom";
@@ -18,7 +18,7 @@ const HomePage = () => {
       <Row>
         <Col md={6} sm={12}>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <RouterLink to="interesses">
+            <RouterLink to="interests">
               <img src={cliente} alt="moça" />
             </RouterLink>
           </div>
