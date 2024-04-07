@@ -6,10 +6,10 @@ export const GroupRadio = ({ options, value, onChange }) => {
       {options.map((option) => (
         <Radio
           key={option.value}
-          valor={option.value}
+          value={option.label}
           label={option.label}
-          checked={option.value === value}
-          onClick={() => onChange(option.value)}
+          checked={option.label === value}
+          onChange={() => onChange(option.label)}
         />
       ))}
     </div>

@@ -5,8 +5,11 @@ import cliente from "../../common/assets/imageProfile/client.png";
 import freela from "../../common/assets/imageProfile/freela.png";
 import { Link } from "../../common/components/Link";
 import { Link as RouterLink } from "react-router-dom";
+import { useRegisterClientContext } from "../client/hook";
 
-const HomePage = () => {
+const ClientSelection = () => {
+  const { setProfile } = useRegisterClientContext();
+
   return (
     <div style={{ marginTop: "-26px", textAlign: "center" }}>
       <Typography variant="h1" component="h1">
@@ -18,7 +21,12 @@ const HomePage = () => {
       <Row>
         <Col md={6} sm={12}>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <RouterLink to="interests">
+            <RouterLink
+              to="interests"
+              onClick={() => {
+                setProfile("client");
+              }}
+            >
               <img src={cliente} alt="moça" />
             </RouterLink>
           </div>
@@ -49,4 +57,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default ClientSelection;

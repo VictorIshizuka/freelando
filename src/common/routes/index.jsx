@@ -1,16 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
+import ClientSelection from "../../modules/ClientSelection";
 
-import DataPersonal from "../../modules/client/pages/personal-data";
-import HomePage from "../../modules/HomePage";
-import { LayoutBase } from "../layout/layoutBase";
-import LayoutBaseCard from "../layout/layoutCard";
-import RegisterClient from "../../modules/client/pages/interests";
-import { Conclueded } from "../../modules/client/pages/conclueded";
+import { LayoutBase } from "../layout/LayoutBase";
+import { LayoutBaseCard } from "../layout/LayoutCard";
+import { Conclueded } from "../../modules/client/pages/Conclueded";
+import { InterestsClient } from "../../modules/client/pages/Interests";
+import { DataPersonal } from "../../modules/client/pages/Personal-data";
 
 export const router = createBrowserRouter([
   {
-    path: "/",
     element: <LayoutBase />,
+    path: "/",
     children: [
       {
         path: "register",
@@ -18,11 +18,11 @@ export const router = createBrowserRouter([
         children: [
           {
             path: "",
-            element: <HomePage />,
+            element: <ClientSelection />,
           },
           {
             path: "interests",
-            element: <RegisterClient />,
+            element: <InterestsClient />,
           },
           {
             path: "personal-data",

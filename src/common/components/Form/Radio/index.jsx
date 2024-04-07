@@ -43,14 +43,14 @@ const InputHidden = styled.input`
   }
 `;
 
-const Radio = ({ value, label, checked, onClick }) => {
+const Radio = ({ value, label, checked, onChange }) => {
   return (
     <>
       <InputHidden
         type="radio"
         value={value}
         checked={checked}
-        onChange={onClick}
+        onChange={onChange}
         id={`radio-customizado-${value}`}
       />
       <LabelStyled htmlFor={`radio-customizado-${value}`} checked={checked}>

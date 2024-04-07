@@ -69,10 +69,10 @@ export const ItemDropDownListStyled = styled.li`
   }
 `;
 
-export const DropDown = ({ title, options }) => {
+export const DropDown = ({ title, options, onChange, value }) => {
   const [open, changeVisible] = useState(false);
   const [isOptionFocus, setIsOptionFocus] = useState(null);
-  const [isOptionSelected, setIsSelected] = useState(null);
+  console.log(isOptionFocus);
 
   const evetClickSelect = (e) => {
     changeVisible(true);
@@ -103,7 +103,7 @@ export const DropDown = ({ title, options }) => {
         e.preventDefault();
         setIsOptionFocus(null);
         changeVisible(false);
-        setIsSelected(options[isOptionFocus]);
+        onChange(options[isOptionFocus]);
         break;
       case "Tab":
         setIsOptionFocus(null);
@@ -126,8 +126,9 @@ export const DropDown = ({ title, options }) => {
         open={open}
         onClick={() => changeVisible(!open)}
         onKeyDown={evetClickSelect}
+        type="button"
       >
-        <div>{isOptionSelected ? isOptionSelected.text : "Selecione"}</div>
+        <div>{value ? value.text : "Selecione"}</div>
         <div>
           <span> {open ? "▲" : "▼"}</span>
         </div>
@@ -137,7 +138,8 @@ export const DropDown = ({ title, options }) => {
               <ItemDropDownListStyled
                 key={item.value}
                 focusActive={index === isOptionFocus}
-                onClick={() => setIsSelected(item)}
+                onClick={() => onChange(item)}
+                //   value={item.value}
               >
                 {item.text}
               </ItemDropDownListStyled>

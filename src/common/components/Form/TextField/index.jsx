@@ -23,11 +23,15 @@ const InputStyled = styled.input`
   line-height: 17px;
 `;
 
-export const TextField = ({ title }) => {
+export const TextField = ({ title, value, onChange, type = "text" }) => {
   return (
     <LabelStyled>
       {title}
-      <InputStyled />
+      <InputStyled
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        type={type}
+      />
     </LabelStyled>
   );
 };

@@ -1,6 +1,4 @@
 import { Global } from "@emotion/react";
-import { Hidden } from "react-grid-system";
-
 const styles = (theme) => {
   return {
     html: {
