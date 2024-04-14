@@ -6,12 +6,15 @@ import { LayoutBaseCard } from "../layout/LayoutCard";
 import { Conclueded } from "../../modules/client/pages/Conclueded";
 import { InterestsClient } from "../../modules/client/pages/Interests";
 import { DataPersonal } from "../../modules/client/pages/Personal-data";
+import { HomePage } from "../../modules/home-page";
 
 export const router = createBrowserRouter([
   {
     element: <LayoutBase />,
     path: "/",
     children: [
+      { path: "home-page", element: <HomePage /> },
+
       {
         path: "register",
         element: <LayoutBaseCard />,

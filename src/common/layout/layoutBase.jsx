@@ -6,7 +6,7 @@ import IconInstagram from "../assets/icons/Instragam.png";
 import IconTwitch from "../assets/icons/Twitch.png";
 import IconTwitter from "../assets/icons/Twiter.png";
 import IconWhatsApp from "../assets/icons/Whatsapp.png";
-import { Link } from "../components/Link";
+//import { Link } from "../components/Link";
 import { Footer, ItemListInline, ListInline } from "../components/Footer";
 import { Typography } from "../components/Typography";
 
@@ -19,9 +19,9 @@ export function LayoutBase() {
             <Col>
               <img src={Logo} alt="Logo" height={40} width={176} />
             </Col>
-            <Col style={{ textAlign: "right" }}>
+            {/* <Col style={{ textAlign: "right" }}>
               <Link>Login</Link>
-            </Col>
+            </Col> */}
           </Row>
         </Container>
       </Header>
