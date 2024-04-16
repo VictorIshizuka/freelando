@@ -3,17 +3,19 @@ import ClientSelection from "../../modules/ClientSelection";
 
 import { LayoutBase } from "../layout/LayoutBase";
 import { LayoutBaseCard } from "../layout/LayoutCard";
-import { Conclueded } from "../../modules/client/pages/Conclueded";
+import { Concluded } from "../../modules/client/pages/Concluded";
 import { InterestsClient } from "../../modules/client/pages/Interests";
 import { DataPersonal } from "../../modules/client/pages/Personal-data";
 import { HomePage } from "../../modules/home-page";
+import { Login } from "../../modules/auth/page";
 
 export const router = createBrowserRouter([
   {
     element: <LayoutBase />,
     path: "/",
     children: [
-      { path: "home-page", element: <HomePage /> },
+      { path: "", element: <HomePage /> },
+      { path: "login", element: <Login /> },
 
       {
         path: "register",
@@ -32,8 +34,8 @@ export const router = createBrowserRouter([
             element: <DataPersonal />,
           },
           {
-            path: "conclueded",
-            element: <Conclueded />,
+            path: "concluded",
+            element: <Concluded />,
           },
         ],
       },

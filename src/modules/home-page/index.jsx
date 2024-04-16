@@ -34,7 +34,7 @@ export const HomePage = () => {
               <Link to={"/register"}>
                 <Button variant="primary">Quero me cadastrar</Button>
               </Link>
-              <Link to={"/register"}>
+              <Link to={"/login"}>
                 <Button variant="secondary">Login</Button>
               </Link>
             </div>

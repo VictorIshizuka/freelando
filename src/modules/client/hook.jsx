@@ -59,11 +59,11 @@ export const RegisterClientProvider = ({ children }) => {
     setClient((oldState) => ({ ...oldState, passwordForgot }));
   };
   const submitClient = () => {
-    navigate("/register/conclueded");
+    navigate("/register/conclueded"); //usar axios aqui
+    navigate("/register");
   };
   const verifyValueRegister = () => {
     setProfile(!!client.profile);
-    navigate("/register");
 
     // return !!client.profile;
   };

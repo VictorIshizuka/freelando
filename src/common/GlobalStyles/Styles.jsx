@@ -1,5 +1,5 @@
 import { Global } from "@emotion/react";
-const styles = (theme) => {
+const styles = theme => {
   return {
     html: {
       fontFamily: theme.fontFamily,

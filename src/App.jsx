@@ -1,13 +1,16 @@
 import { RouterProvider } from "react-router-dom";
 import { router } from "./common/routes";
 import { IsThemeProvider } from "./common/ThemeProvider/ThemeProvider";
-import { Styles } from "./common/GlobalStyles/Styles";
+import { Styles } from "./common/globalStyles/Styles";
+import { AuthProvider } from "./modules/auth/hook";
 
 function App() {
   return (
     <IsThemeProvider>
       <Styles />
-      <RouterProvider router={router} />
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
     </IsThemeProvider>
   );
 }
