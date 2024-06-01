@@ -8,6 +8,8 @@ import { InterestsClient } from "../../modules/client/pages/Interests";
 import { DataPersonal } from "../../modules/client/pages/Personal-data";
 import { HomePage } from "../../modules/home-page";
 import { Login } from "../../modules/auth/page";
+import { ClientHome } from "../../modules/client/pages/ClientHome";
+import { Profile } from "../../modules/profile";
 
 export const router = createBrowserRouter([
   {
@@ -16,7 +18,16 @@ export const router = createBrowserRouter([
     children: [
       { path: "", element: <HomePage /> },
       { path: "login", element: <Login /> },
-
+      { path: "client-home", element: <ClientHome /> },
+      {
+        path: "area-logada",
+        children: [
+          {
+            path: "profile",
+            element: <Profile />,
+          },
+        ],
+      },
       {
         path: "register",
         element: <LayoutBaseCard />,

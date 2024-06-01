@@ -1,5 +1,5 @@
 import { Col, Container, Row } from "react-grid-system";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { Header } from "../components/Header";
 import Logo from "../assets/icons/Logo.png";
 import IconInstagram from "../assets/icons/Instragam.png";
@@ -9,8 +9,10 @@ import IconWhatsApp from "../assets/icons/Whatsapp.png";
 //import { Link } from "../components/Link";
 import { Footer, ItemListInline, ListInline } from "../components/Footer";
 import { Typography } from "../components/Typography";
+import { useAuthContext } from "../../modules/auth/hook";
 
 export function LayoutBase() {
+  const { logout, isLogged } = useAuthContext();
   return (
     <>
       <Header>
@@ -19,9 +21,11 @@ export function LayoutBase() {
             <Col>
               <img src={Logo} alt="Logo" height={40} width={176} />
             </Col>
-            {/* <Col style={{ textAlign: "right" }}>
-              <Link>Login</Link>
-            </Col> */}
+            {isLogged && (
+              <Col style={{ textAlign: "right" }}>
+                <Link onClick={() => logout()}>Sair</Link>
+              </Col>
+            )}
           </Row>
         </Container>
       </Header>

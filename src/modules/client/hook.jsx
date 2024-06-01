@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import http from "../../common/http";
 
 const initialClient = {
   profile: "",
@@ -10,10 +11,12 @@ const initialClient = {
   email: "",
   password: "",
   passwordForgot: "",
+  erros: {},
 };
 
 export const RegisterClientContext = createContext({
   client: initialClient,
+  erros: {},
   setProfile: () => null,
   setInterest: () => null,
   setNameComplete: () => null,
@@ -34,32 +37,47 @@ export const RegisterClientProvider = ({ children }) => {
   const navigate = useNavigate();
 
   const [client, setClient] = useState(initialClient);
-  const setProfile = (profile) => {
-    setClient((oldState) => ({ ...oldState, profile }));
+  const setProfile = profile => {
+    setClient(oldState => ({ ...oldState, profile }));
   };
-  const setInterest = (interest) => {
-    setClient((oldState) => ({ ...oldState, interest }));
+  const setInterest = interest => {
+    setClient(oldState => ({ ...oldState, interest }));
   };
-  const setNameComplete = (nameComplete) => {
-    setClient((oldState) => ({ ...oldState, nameComplete }));
+  const setNameComplete = nameComplete => {
+    setClient(oldState => ({ ...oldState, nameComplete }));
   };
-  const setUf = (uf) => {
-    setClient((oldState) => ({ ...oldState, uf }));
+  const setUf = uf => {
+    setClient(oldState => ({ ...oldState, uf }));
   };
-  const setCity = (city) => {
-    setClient((oldState) => ({ ...oldState, city }));
+  const setCity = city => {
+    setClient(oldState => ({ ...oldState, city }));
   };
-  const setEmail = (email) => {
-    setClient((oldState) => ({ ...oldState, email }));
+  const setEmail = email => {
+    setClient(oldState => ({ ...oldState, email }));
   };
-  const setPassword = (password) => {
-    setClient((oldState) => ({ ...oldState, password }));
+  const setPassword = password => {
+    setClient(oldState => ({ ...oldState, password }));
   };
-  const setPasswordForgot = (passwordForgot) => {
-    setClient((oldState) => ({ ...oldState, passwordForgot }));
+  const setPasswordForgot = passwordForgot => {
+    setClient(oldState => ({ ...oldState, passwordForgot }));
   };
   const submitClient = () => {
-    navigate("/register/conclueded"); //usar axios aqui
+    http
+      .post("auth/register", {
+        perfil: client.profile,
+        interesse: client.interest,
+        nome: client.nameComplete,
+        uf: client.uf.text,
+        cidade: client.city,
+        email: client.email,
+        senha: client.password,
+      })
+      .then(() => {
+        navigate("/register/concluded");
+      })
+      .catch(erro => {
+        console.error(erro);
+      });
     navigate("/register");
   };
   const verifyValueRegister = () => {
