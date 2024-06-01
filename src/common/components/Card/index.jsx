@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import styled from "@emotion/styled";
 
 const StyledDiv = styled.div`
   padding: ${(props) => props.theme.gaps.l};
@@ -6,8 +6,8 @@ const StyledDiv = styled.div`
   border: 1px solid;
   border-color: ${(props) => props.theme.colors.primary.a};
   border-radius: ${(props) => props.theme.gaps.s};
-`
+`;
 
 export const Card = ({ children }) => {
-  return <StyledDiv>{children}</StyledDiv>
-}
+  return <StyledDiv>{children}</StyledDiv>;
+};

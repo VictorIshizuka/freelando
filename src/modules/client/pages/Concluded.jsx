@@ -2,9 +2,9 @@ import { Col, Row } from "react-grid-system";
 import { Typography } from "../../../common/components/Typography";
 import { Button } from "../../../common/components/Form/Button";
 import { Link } from "react-router-dom";
-import concluededClient from "../../../common/assets/imageProfile/conclueded-client.png";
+import concludedClient from "../../../common/assets/imageProfile/concluded-client.png";
 
-export const Conclueded = () => {
+export const Concluded = () => {
   return (
     <div style={{ marginTop: "-26px" }}>
       <div style={{ textAlign: "center" }}>
@@ -18,7 +18,7 @@ export const Conclueded = () => {
       </div>
       <figure>
         <img
-          src={concluededClient}
+          src={concludedClient}
           alt="conclueded"
           height={350}
           width={"100%"}

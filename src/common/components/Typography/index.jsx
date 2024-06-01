@@ -1,15 +1,15 @@
-import styled from '@emotion/styled'
+import styled from "@emotion/styled";
 
 const components = {
-  h1: 'h1',
-  h2: 'h2',
-  h3: 'h3',
-  body: 'p',
-  bodyBold: 'strong',
-  body2: 'p',
-  body2Bold: 'strong',
-  legend: 'p'
-}
+  h1: "h1",
+  h2: "h2",
+  h3: "h3",
+  body: "p",
+  bodyBold: "strong",
+  body2: "p",
+  body2Bold: "strong",
+  legend: "p",
+};
 
 const styles = {
   h1: `
@@ -51,13 +51,13 @@ const styles = {
       font-weight: 400;
       font-size: 14px;
       line-height: 17px;
-  `
-}
+  `,
+};
 
 export const Typography = ({ variant, component, children }) => {
-  const tag = components[component]
+  const tag = components[component];
   const ComponentUsed = styled[tag]`
     ${styles[variant]}
-  `
-  return <ComponentUsed>{children}</ComponentUsed>
-}
+  `;
+  return <ComponentUsed>{children}</ComponentUsed>;
+};
