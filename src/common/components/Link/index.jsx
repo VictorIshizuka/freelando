@@ -11,7 +11,7 @@ const LinkPrimary = styled.a`
     color: ${(props) => props.theme.colors.dark.a};
   }
 `;
-const LinkSecundary = styled.a`
+const LinkSecondary = styled.a`
   cursor: pointer;
   font-weight: 400;
   font-size: 16px;
@@ -22,9 +22,22 @@ const LinkSecundary = styled.a`
     border-bottom: 1px solid ${(props) => props.theme.colors.primary.b};
   }
 `;
-export const Link = ({ children, variant = "primary" }) => {
+export const Link = ({ children, variant = "primary", onClick = null }) => {
+  const isOnCLick = () => {
+    if (onClick) {
+      onClick();
+    }
+  };
   if (variant === "primary") {
-    return <LinkPrimary variant={variant}>{children}</LinkPrimary>;
+    return (
+      <LinkPrimary variant={variant} onClick={isOnCLick}>
+        {children}
+      </LinkPrimary>
+    );
   }
-  return <LinkSecundary variant={variant}>{children}</LinkSecundary>;
+  return (
+    <LinkSecondary variant={variant} onClick={isOnCLick}>
+      {children}
+    </LinkSecondary>
+  );
 };
