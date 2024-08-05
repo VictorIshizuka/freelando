@@ -7,8 +7,8 @@ export const LayoutBaseCard = () => {
   return (
     <RegisterClientProvider>
       <Row justify="center">
-        <Col xl={6} lg={6} md={8} sm={12} style={{ margin: "50px 0" }}>
-          <Card>
+        <Col xl={6} lg={6} md={8} sm={12} style={{ margin: "2.1rem 0" }}>
+          <Card border color={"gray"}>
             <Outlet />
           </Card>
         </Col>

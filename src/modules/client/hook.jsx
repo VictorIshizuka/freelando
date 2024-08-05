@@ -11,7 +11,6 @@ const initialClient = {
   email: "",
   password: "",
   passwordForgot: "",
-  erros: {},
 };
 
 export const RegisterClientContext = createContext({
@@ -64,13 +63,7 @@ export const RegisterClientProvider = ({ children }) => {
   const submitClient = () => {
     http
       .post("auth/register", {
-        perfil: client.profile,
-        interesse: client.interest,
-        nome: client.nameComplete,
-        uf: client.uf.text,
-        cidade: client.city,
-        email: client.email,
-        senha: client.password,
+        client,
       })
       .then(() => {
         navigate("/register/concluded");
@@ -78,10 +71,9 @@ export const RegisterClientProvider = ({ children }) => {
       .catch(erro => {
         console.error(erro);
       });
-    navigate("/register");
   };
   const verifyValueRegister = () => {
-    setProfile(!!client.profile);
+    !!client.profile;
 
     // return !!client.profile;
   };

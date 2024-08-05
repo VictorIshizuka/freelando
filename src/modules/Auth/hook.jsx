@@ -4,7 +4,7 @@ import { StorageToken } from "./token";
 
 export const AuthContext = createContext({
   isLogged: false,
-  login: (email, password) => null,
+  login: (email, senha) => null,
   logout: () => null,
   profile: {},
 });
@@ -22,6 +22,7 @@ export const AuthProvider = ({ children }) => {
         senha,
       })
       .then(res => {
+        console.log(res);
         StorageToken.defineToken(res.data.access_token, res.data.refresh_token);
         setIsLogged(true);
       })

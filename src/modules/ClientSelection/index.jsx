@@ -11,10 +11,20 @@ const ClientSelection = () => {
   const { setProfile } = useRegisterClientContext();
 
   return (
-    <div style={{ marginTop: "-26px", textAlign: "center" }}>
-      <Typography variant="h1" component="h1">
-        Bem Vindo!
-      </Typography>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        textAlign: "center",
+        marginBottom: "-25px",
+        marginTop: "-35px",
+      }}
+    >
+      <div style={{ textAlign: "center", marginBottom: "-30px" }}>
+        <Typography variant="h1" component="h1">
+          Bem Vindo!
+        </Typography>
+      </div>
       <Typography variant="h3" component="h2">
         Como podemos te ajudar?
       </Typography>
@@ -27,7 +37,7 @@ const ClientSelection = () => {
                 setProfile("client");
               }}
             >
-              <img src={cliente} alt="moça" />
+              <img src={cliente} width={"150px"} alt="freela" />
             </RouterLink>
           </div>
           <Typography variant="body" component="body">
@@ -37,7 +47,7 @@ const ClientSelection = () => {
         <Col md={6} sm={12}>
           <div style={{ display: "flex", justifyContent: "center" }}>
             <RouterLink>
-              <img src={freela} alt="moça" />
+              <img src={freela} width={"150px"} alt="cliente" />
             </RouterLink>
           </div>
           <Typography variant="body" component="body">

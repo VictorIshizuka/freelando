@@ -52,8 +52,8 @@ export const DataPersonal = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (client.profile === "") {
-      verifyValueRegister();
+    if (!verifyValueRegister()) {
+      navigate("/register");
     }
   }, [navigate, verifyValueRegister]);
 
@@ -63,75 +63,84 @@ export const DataPersonal = () => {
   }
 
   return (
-    <form onSubmit={saveRegister}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        marginBottom: "-15px",
+        marginTop: "-35px",
+      }}
+    >
       <div style={{ textAlign: "center" }}>
-        <Typography variant="h1" component="h1">
-          Freelando
-        </Typography>
+        <div style={{ marginBottom: "-25px" }}>
+          <Typography variant="h1" component="h1">
+            Freelando
+          </Typography>
+        </div>
         <Typography variant="body" component="body">
           Crie seu perfil gratuitamente para começar a trabalhar com os melhores
           freelancers. Em seguida, você poderá dar mais detalhes sobre suas
           demandas e sobre sua forma de trabalho.
         </Typography>
       </div>
-      <Row>
-        <Col>
-          <TextField
-            title="Nome Completo"
-            value={client.nameComplete}
-            onChange={setNameComplete}
-          />
-        </Col>
-      </Row>
-      <Row>
-        <Col lg={4} md={4} sm={4}>
-          <DropDown
-            title="Estado"
-            options={brasilianStates}
-            value={client.uf}
-            onChange={setUf}
-          />
-        </Col>
-        <Col lg={8} md={8} sm={8}>
-          <TextField title="Cidade" value={client.city} onChange={setCity} />
-        </Col>
-      </Row>
-      <Row>
-        <Col lg={12} md={12} sm={12}>
-          <TextField title="Email" value={client.email} onChange={setEmail} />
-        </Col>
-      </Row>
-      <Row>
-        <Col lg={6} md={6} sm={6}>
-          <TextField
-            title="Senha"
-            value={client.password}
-            onChange={setPassword}
-          />
-        </Col>
-        <Col lg={6} md={6} sm={6}>
-          <TextField
-            title="Repita a senha"
-            value={client.passwordForgot}
-            onChange={setPasswordForgot}
-          />
-        </Col>
-      </Row>
-      <Row>
-        <Col lg={6} md={6} sm={6}>
-          <RouterLink to="/register/interests">
-            <Button variant="secondary">anterior</Button>
-          </RouterLink>
-        </Col>
+      <form onSubmit={saveRegister}>
+        <Row>
+          <Col>
+            <TextField
+              title="Nome Completo"
+              value={client.nameComplete}
+              onChange={setNameComplete}
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col lg={4} md={4} sm={4}>
+            <DropDown
+              title="Estado"
+              options={brasilianStates}
+              value={client.uf}
+              onChange={setUf}
+            />
+          </Col>
+          <Col lg={8} md={8} sm={8}>
+            <TextField title="Cidade" value={client.city} onChange={setCity} />
+          </Col>
+        </Row>
+        <Row>
+          <Col lg={12} md={12} sm={12}>
+            <TextField title="Email" value={client.email} onChange={setEmail} />
+          </Col>
+        </Row>
+        <Row>
+          <Col lg={6} md={6} sm={6}>
+            <TextField
+              title="Senha"
+              value={client.password}
+              onChange={setPassword}
+            />
+          </Col>
+          <Col lg={6} md={6} sm={6}>
+            <TextField
+              title="Repita a senha"
+              value={client.passwordForgot}
+              onChange={setPasswordForgot}
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col lg={6} md={6} sm={6}>
+            <RouterLink to="/register/interests">
+              <Button variant="secondary">anterior</Button>
+            </RouterLink>
+          </Col>
 
-        <Col lg={6} md={6} sm={6}>
-          <div style={{ textAlign: "right" }}>
-            {/* <RouterLink to="/register/conclueded"> */}
-            <Button variant="primary">proximo</Button>
-            {/* </RouterLink> */}
-          </div>
-        </Col>
-      </Row>
-    </form>
+          <Col lg={6} md={6} sm={6}>
+            <div style={{ textAlign: "right" }}>
+              <Button variant="primary">proximo</Button>
+            </div>
+          </Col>
+        </Row>
+      </form>
+    </div>
   );
 };
