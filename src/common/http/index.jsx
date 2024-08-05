@@ -7,20 +7,6 @@ export const http = axios.create({
 
 const ignoreRoutesToErros = ["auth/login", "auth/refresh"];
 
-const refreshToken = async () => {
-  const token = StorageToken.refreshToken;
-
-  return axios
-    .get("http://localhost:8080/auth/refresh", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-    .then(res => {
-      StorageToken.defineToken(res.data.access_token, res.data.refresh_token);
-    });
-};
-
 // Adiciona um interceptador na requisição
 http.interceptors.request.use(
   function (config) {
@@ -38,6 +24,25 @@ http.interceptors.request.use(
   }
 );
 
+const refreshToken = async () => {
+  const token = StorageToken.refreshToken;
+
+  return axios
+    .get("http://localhost:8080/auth/refresh", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then(res => {
+      StorageToken.defineToken(res.data.access_token, res.data.refresh_token);
+    });
+};
+
+const lidarComErro401 = async erro => {
+  await refreshToken().then(() => http(erro.config));
+  return Promise.reject(erro);
+};
+
 // adicionar um interceptador da resposta
 http.interceptors.response.use(
   response => {
@@ -48,16 +53,12 @@ http.interceptors.response.use(
       !ignoreRoutesToErros.includes(error.config.url) &&
       error.response.status === 401
     ) {
-      console.log("caiu");
+      console.log("caiu no erro ");
+
       return lidarComErro401(error);
     }
     return Promise.reject(error);
   }
 );
-
-const lidarComErro401 = async erro => {
-  await refreshToken().then(() => http(erro.config));
-  return Promise.reject(erro);
-};
 
 export default http;

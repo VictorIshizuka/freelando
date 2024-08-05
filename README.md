@@ -1,8 +1,5 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## aviso
+- o app esta com problema na utilzação do react-router-dom, pois o login esta ocorrendo de uma forma diferente e o componente que verifica o login nao renderiza as rotas permitidas....no mais esta tudo certo
+- a aquitetra esta feia, mas funcional e estou realizando uma versao melhor assim como o projeto Organograma-v2

@@ -4,25 +4,30 @@ import { Card } from "../../../common/components/Card";
 import { Typography } from "../../../common/components/Typography";
 import { TextField } from "../../../common/components/Form/TextField";
 import { useState } from "react";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { Link } from "../../../common/components/Link";
 import { Button } from "../../../common/components/Form/Button";
 import { useAuthContext } from "../hook";
 
 const FormStyled = styled.form`
   border-bottom: 1px solid;
-  border-color: ${(props) => props.theme.colors.primary.a};
-  padding-bottom: ${(props) => props.theme.gaps.l};
+  border-color: ${props => props.theme.colors.primary.a};
+  padding-bottom: ${props => props.theme.gaps.l};
 `;
 
 export const Login = () => {
   const [isEmail, setIsEmail] = useState("");
   const [isPassword, setIsPassword] = useState("");
-  const { login } = useAuthContext();
+  const { login, isLogged } = useAuthContext();
+  const navigate = useNavigate();
 
-  const onSubmitLogin = (e) => {
+  const onSubmitLogin = e => {
+    console.log(isLogged);
     e.preventDefault();
     login(isEmail, isPassword);
+    setTimeout(() => {
+      navigate("/area-logada/home");
+    }, 500);
   };
   return (
     <Container>

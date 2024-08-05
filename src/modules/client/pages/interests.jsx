@@ -1,5 +1,5 @@
 import { Col, Row } from "react-grid-system";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Typography } from "../../../common/components/Typography";
 import { Button } from "../../../common/components/Form/Button";
@@ -38,27 +38,37 @@ export const InterestsClient = () => {
   const { client, setInterest, verifyValueRegister } =
     useRegisterClientContext();
   useEffect(() => {
-    if (client.profile === "") {
-      verifyValueRegister();
+    if (!verifyValueRegister()) {
+      navigate("/register");
     }
   }, [navigate, verifyValueRegister]);
   return (
-    <div style={{ marginTop: "-26px" }}>
-      <div style={{ textAlign: "center" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        textAlign: "center",
+        marginBottom: "-25px",
+        marginTop: "-35px",
+      }}
+    >
+      <div style={{ textAlign: "center", marginBottom: "-30px" }}>
         <Typography variant="h1" component="h1">
           Crie Cadastro
         </Typography>
-        <Typography variant="h3" component="h2">
-          Qual a área de interesse
-        </Typography>
       </div>
+      <Typography variant="h3" component="h2">
+        Qual a área de interesse
+      </Typography>
       <Row>
         <Col>
-          <GroupRadio
-            options={options}
-            value={client.interest}
-            onChange={setInterest}
-          />
+          <div>
+            <GroupRadio
+              options={options}
+              value={client.interest}
+              onChange={setInterest}
+            />
+          </div>
         </Col>
       </Row>
       <Row justify="center" style={{ padding: "10px 0px" }}>

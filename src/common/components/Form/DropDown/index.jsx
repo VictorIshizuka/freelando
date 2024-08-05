@@ -18,13 +18,13 @@ const ButtonStyled = styled.button`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: ${(props) => props.theme.gaps.xs};
-  border-bottom-radius: ${(props) => (props.open ? "0" : "18px")};
-  padding: ${(props) => props.theme.gaps.s};
+  margin-top: ${props => props.theme.gaps.xs};
+  border-bottom-radius: ${props => (props.open ? "0" : "18px")};
+  padding: ${props => props.theme.gaps.s};
   padding-x: -16px;
-  background: ${(props) => props.theme.colors.white};
-  border: 1px solid ${(props) => props.theme.colors.neutral.a};
-  border-color: ${(props) => props.theme.colors.focus};
+  background: ${props => props.theme.colors.white};
+  border: 1px solid ${props => props.theme.colors.neutral.a};
+  border-color: ${props => props.theme.colors.focus};
   border-radius: 18px;
   &:focus {
   }
@@ -43,43 +43,41 @@ export const DropDownListStyled = styled.ul`
   top: 100%;
   left: 0;
   right: 0;
-  background-color: ${(props) => props.theme.colors.white};
+  background-color: ${props => props.theme.colors.white};
   z-index: 1;
-  border: 1px solid ${(props) => props.theme.colors.neutral.a};
+  border: 1px solid ${props => props.theme.colors.neutral.a};
   border-bottom-left-radius: 18px;
   border-bottom-right-radius: 18px;
   border-top: none;
   margin: 0;
-  padding: 0 ${(props) => props.theme.gaps.m};
+  padding: 0 ${props => props.theme.gaps.m};
   list-style: none;
 `;
 
 export const ItemDropDownListStyled = styled.li`
-  padding: ${(props) => props.theme.gaps.xs} 0;
+  padding: ${props => props.theme.gaps.xs} 0;
   text-align: center;
-  border-bottom: 1px solid ${(props) => props.theme.colors.neutral.a};
+  border-bottom: 1px solid ${props => props.theme.colors.neutral.a};
   cursor: pointer;
   &:last-child {
     border: none;
   }
-  color: ${(props) =>
-    props.focusActive ? props.theme.colors.focus : "inherit"};
+  color: ${props => (props.focusActive ? props.theme.colors.focus : "inherit")};
   &:hover {
-    color: ${(props) => props.theme.colors.focus};
+    color: ${props => props.theme.colors.focus};
   }
 `;
 
 export const DropDown = ({ title, options, onChange, value }) => {
   const [open, changeVisible] = useState(false);
   const [isOptionFocus, setIsOptionFocus] = useState(null);
-  console.log(isOptionFocus);
 
-  const evetClickSelect = (e) => {
+  const evetClickSelect = e => {
     changeVisible(true);
     switch (e.key) {
       case "ArrowDown":
         e.preventDefault();
-        setIsOptionFocus((oldFocus) => {
+        setIsOptionFocus(oldFocus => {
           if (oldFocus == null) {
             return 0;
           }
@@ -92,7 +90,7 @@ export const DropDown = ({ title, options, onChange, value }) => {
 
       case "ArrowUp":
         e.preventDefault();
-        setIsOptionFocus((oldFocus) => {
+        setIsOptionFocus(oldFocus => {
           if (!oldFocus) {
             return 0;
           }
